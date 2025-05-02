@@ -23,10 +23,7 @@ import org.opengoofy.index12306.framework.starter.convention.exception.ClientExc
 import org.springframework.stereotype.Component;
 
 /**
- * 查询列车车票流程过滤器之验证数据是否为空或空的字符串
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
+ * 列车车票查询参数必填检验
  */
 @Component
 public class TrainTicketQueryParamNotNullChainFilter implements TrainTicketQueryChainFilter<TicketPageQueryReqDTO> {

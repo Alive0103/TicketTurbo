@@ -140,7 +140,7 @@ import static org.opengoofy.index12306.biz.ticketservice.common.constant.RedisKe
 import static org.opengoofy.index12306.biz.ticketservice.toolkit.DateUtil.convertDateToLocalTime;
 
 /**
- * 车票服务接口实现层
+ * 车票接口层实现
  */
 @Slf4j
 @Service

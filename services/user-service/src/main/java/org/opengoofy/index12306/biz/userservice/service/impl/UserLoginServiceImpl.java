@@ -98,7 +98,6 @@ public class UserLoginServiceImpl implements UserLoginService {
     public UserLoginRespDTO login(UserLoginReqDTO requestParam) {
         String usernameOrMailOrPhone = requestParam.getUsernameOrMailOrPhone();
         boolean mailFlag = false;
-        // 时间复杂度最佳 O(1)。indexOf or contains 时间复杂度为 O(n)
         for (char c : usernameOrMailOrPhone.toCharArray()) {
             if (c == '@') {
                 mailFlag = true;
@@ -206,7 +205,6 @@ public class UserLoginServiceImpl implements UserLoginService {
             userReuseMapper.delete(Wrappers.update(new UserReuseDO(username)));
             StringRedisTemplate instance = (StringRedisTemplate) distributedCache.getInstance();
             instance.opsForSet().remove(USER_REGISTER_REUSE_SHARDING_KEY + hashShardingIdx(username), username);
-            // 布隆过滤器设计问题：设置多大、碰撞率以及初始容量不够了怎么办？详情查看：https://nageoffer.com/12306/question
             userRegisterCachePenetrationBloomFilter.add(username);
         } finally {
             lock.unlock();
@@ -219,11 +217,9 @@ public class UserLoginServiceImpl implements UserLoginService {
     public void deletion(UserDeletionReqDTO requestParam) {
         String username = UserContext.getUsername();
         if (!Objects.equals(username, requestParam.getUsername())) {
-            // 此处严谨来说，需要上报风控中心进行异常检测
             throw new ClientException("注销账号与登录账号不一致");
         }
         RLock lock = redissonClient.getLock(LOCK_USER_DELETION_LEY + requestParam.getUsername());
-        // 加锁为什么放在 try 语句外？https://www.yuque.com/magestack/12306/pu52u29i6eb1c5wh
         lock.lock();
         try {
             UserQueryRespDTO userQueryRespDTO = userService.queryUserByUsername(username);
@@ -235,7 +231,6 @@ public class UserLoginServiceImpl implements UserLoginService {
             UserDO userDO = new UserDO();
             userDO.setDeletionTime(System.currentTimeMillis());
             userDO.setUsername(username);
-            // MyBatis Plus 不支持修改语句变更 del_flag 字段
             userMapper.deletionUser(userDO);
             UserPhoneDO userPhoneDO = UserPhoneDO.builder()
                     .phone(userQueryRespDTO.getPhone())
@@ -253,7 +248,6 @@ public class UserLoginServiceImpl implements UserLoginService {
             userReuseMapper.insert(new UserReuseDO(username));
             StringRedisTemplate instance = (StringRedisTemplate) distributedCache.getInstance();
             instance.opsForSet().add(USER_REGISTER_REUSE_SHARDING_KEY + hashShardingIdx(username), username);
-            // 使用空间换时间，将用户注销次数添加到 Redis 作为常驻缓存。这里更好的实现方案是监听 MySQL Binlog 日志异步操作，为了简单实现直接操作
             LambdaQueryWrapper<UserDeletionDO> queryWrapper = Wrappers.lambdaQuery(UserDeletionDO.class)
                     .eq(UserDeletionDO::getIdType, userQueryRespDTO.getIdType())
                     .eq(UserDeletionDO::getIdCard, userQueryRespDTO.getIdCard());

@@ -28,10 +28,6 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Hippo4j 动态线程池配置
- * <a href="https://github.com/opengoofy/hippo4j">异步线程池框架，支持线程池动态变更&监控&报警</a>
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
  */
 @Configuration
 public class Hippo4jThreadPoolConfiguration {

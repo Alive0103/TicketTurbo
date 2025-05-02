@@ -152,11 +152,11 @@ const handleLogin = () => {
 }
 
 const registerSubmit = () => {
-  if (location.host.indexOf('12306') !== -1) {
-    message.info('关注公众获取验证码登录哦！')
-    currentAction.value = 'login'
-    return
-  }
+  // if (location.host.indexOf('12306') !== -1) {
+  //   message.info('关注公众获取验证码登录哦！')
+  //   currentAction.value = 'login'
+  //   return
+  // }
   registerValidate()
     .then(() => {
       fetchRegister(registerForm).then((res) => {
@@ -221,7 +221,7 @@ const registerSubmit = () => {
             </FormItem>
             <FormItem>
               <div class="action-btn">
-                <a href="">忘记密码？</a>
+                <a href="https://github.com/Alive0103/TicketTurbo">忘记密码？</a>
                 <Button
                   type="primary"
                   :style="{ backgroundColor: '#202020', border: 'none' }"
@@ -313,7 +313,7 @@ const registerSubmit = () => {
     <div class="wrapper">
       <h1 class="tip-text">
         {{
-          `扫码下方二维码，关注后回复：12306，获取拿个offer-12306在线购票系统人机验证码`
+          ` `
         }}
       </h1>
       <img

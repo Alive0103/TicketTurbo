@@ -3,7 +3,7 @@
     <Breadcrumb>
       <BreadcrumbItem>
         <IconFont type="icon-huochezhanxiao" />
-        <span>12306</span></BreadcrumbItem
+        <span>TicketTurbo</span></BreadcrumbItem
       >
       <BreadcrumbItem
         ><IconFont :type="currentPath?.icon" color="black" />

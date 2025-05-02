@@ -18,14 +18,17 @@
 package org.opengoofy.index12306.biz.ticketservice.service.handler.ticket.dto;
 
 import lombok.Data;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 
 /**
- * 列车购票出参
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
+ * 乘车人购票返回参数
  */
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class TrainPurchaseTicketRespDTO {
 
     /**

@@ -35,10 +35,7 @@ import java.util.stream.Collectors;
 import static org.opengoofy.index12306.biz.ticketservice.common.constant.RedisKeyConstant.TRAIN_STATION_REMAINING_TICKET;
 
 /**
- * 购票流程过滤器之验证列车站点库存是否充足
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
+ * 列车购票参数库存校验
  */
 @Component
 @RequiredArgsConstructor

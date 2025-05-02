@@ -36,9 +36,6 @@ import java.util.Objects;
 
 /**
  * SpringCloud Gateway Token 拦截器
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
  */
 @Component
 public class TokenValidateGatewayFilterFactory extends AbstractGatewayFilterFactory<Config> {
@@ -59,7 +56,6 @@ public class TokenValidateGatewayFilterFactory extends AbstractGatewayFilterFact
             String requestPath = request.getPath().toString();
             if (isPathInBlackPreList(requestPath, config.getBlackPathPre())) {
                 String token = request.getHeaders().getFirst("Authorization");
-                // TODO 需要验证 Token 是否有效，有可能用户注销了账户，但是 Token 有效期还未过
                 UserInfoDTO userInfo = JWTUtil.parseJwtToken(token);
                 if (!validateToken(userInfo)) {
                     ServerHttpResponse response = exchange.getResponse();

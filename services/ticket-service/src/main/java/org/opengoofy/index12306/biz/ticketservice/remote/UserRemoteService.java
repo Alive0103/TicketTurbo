@@ -27,9 +27,6 @@ import java.util.List;
 
 /**
  * 用户远程服务调用
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
  */
 @FeignClient(value = "index12306-user${unique-name:}-service", url = "${aggregation.remote-url:}")
 public interface UserRemoteService {

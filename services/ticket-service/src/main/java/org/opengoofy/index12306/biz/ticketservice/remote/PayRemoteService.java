@@ -29,9 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 支付单远程调用服务
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
  */
 @FeignClient(value = "index12306-pay${unique-name:}-service", url = "${aggregation.remote-url:}")
 public interface PayRemoteService {

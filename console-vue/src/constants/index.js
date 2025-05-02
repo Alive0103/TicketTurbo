@@ -85,22 +85,22 @@ const ID_CARD_TYPE = [
   }
 ]
 
-const SEAT_NAME_MAP = [
-  {
-    0: {
-      businessClass: '商务座',
-      firstClass: '一等座',
-      secondClass: '二等座'
-    }
-  },
-  {
-    1: {
-      businessClass: '商务座',
-      businessClass: '商务座',
-      businessClass: '商务座'
-    }
-  }
-]
+// const SEAT_NAME_MAP = [
+//   {
+//     0: {
+//       businessClass: '商务座',
+//       firstClass: '一等座',
+//       secondClass: '二等座'
+//     }
+//   },
+//   {
+//     1: {
+//       businessClass: '商务座',
+//       businessClass: '商务座',
+//       businessClass: '商务座'
+//     }
+//   }
+// ]
 
 const SEAT_CLASS_TYPE_LIST = [
   { label: '商务座', code: 0 },
@@ -211,7 +211,7 @@ const CHECK_STATUS = [
 ]
 export {
   TICKET_TYPE_LIST,
-  SEAT_NAME_MAP,
+  // SEAT_NAME_MAP,
   ID_CARD_TYPE,
   BANK_LIST,
   SEAT_CLASS_TYPE_LIST,

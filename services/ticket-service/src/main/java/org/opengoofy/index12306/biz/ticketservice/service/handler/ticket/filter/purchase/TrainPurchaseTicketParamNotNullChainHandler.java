@@ -27,10 +27,7 @@ import org.springframework.stereotype.Component;
 import java.util.Objects;
 
 /**
- * 购票流程过滤器之验证参数必填
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
+ * 列车购票参数必填检验
  */
 @Component
 public class TrainPurchaseTicketParamNotNullChainHandler implements TrainPurchaseTicketChainFilter<PurchaseTicketReqDTO> {

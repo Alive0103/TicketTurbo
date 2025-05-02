@@ -14,7 +14,6 @@ const initAxios = Axios.create({
 //请求拦截器
 initAxios.interceptors.request.use(
   (config) => {
-    //在发送之前做点什么
     return config
   },
   (error) => {
@@ -42,7 +41,5 @@ initAxios.interceptors.response.use(
     return Promise.reject(error)
   }
 )
-
-// const http = Axios()
 
 export default initAxios
