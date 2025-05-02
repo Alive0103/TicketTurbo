@@ -1,0 +1,12 @@
+server:
+  port: 9009
+
+spring:
+  application:
+    name: index12306-test-service
+
+  data:
+    redis:
+      host: 127.0.0.1
+      port: 6379
+      password: 123456

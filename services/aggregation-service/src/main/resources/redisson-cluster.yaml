@@ -1,0 +1,29 @@
+clusterServersConfig:
+  nodeAddresses:
+    - "redis://127.0.0.1:6379"
+    - "redis://127.0.0.1:6380"
+    - "redis://127.0.0.1:6381"
+    - "redis://127.0.0.1:6382"
+    - "redis://127.0.0.1:6383"
+    - "redis://127.0.0.1:6384"
+
+  scanInterval: 2000                # Redis 集群状态扫描间隔（毫秒）
+  readMode: "SLAVE"                 # 读操作模式，优先从从节点读取（可选 MASTER/MASTER_SLAVE/SLAVE）
+  subscriptionMode: "SLAVE"         # 订阅操作模式，从从节点订阅（可选 MASTER/MASTER_SLAVE/SLAVE）
+
+  retryAttempts: 3                  # 命令失败重试次数
+  retryInterval: 1500               # 命令重试间隔（毫秒）
+  connectTimeout: 10000             # 连接超时时间（毫秒）
+  timeout: 3000                     # 响应超时时间（毫秒）
+
+  masterConnectionMinimumIdleSize: 24 # 主节点最小空闲连接数
+  masterConnectionPoolSize: 64        # 主节点连接池大小
+  slaveConnectionMinimumIdleSize: 24  # 从节点最小空闲连接数
+  slaveConnectionPoolSize: 64         # 从节点连接池大小
+
+  loadBalancer:
+    class: "org.redisson.connection.balancer.RoundRobinLoadBalancer" # 负载均衡策略，默认轮询
+
+threads: 16                         # Redisson 工作线程数
+nettyThreads: 32                    # Netty IO 线程数
+transportMode: "NIO"                # 传输模式（NIO 或 EPOLL）

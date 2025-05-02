@@ -1,0 +1,27 @@
+masterSlaveServersConfig: # 主从模式配置
+  masterAddress: "redis://127.0.0.1:6379"     # 主节点地址
+  slaveAddresses:                             # 从节点地址列表
+    - "redis://127.0.0.1:6380"                # 从节点 1 地址
+    - "redis://127.0.0.1:6381"                # 从节点 2 地址
+  database: 0                                 # 使用的数据库索引，默认是 0
+  loadBalancer:                               # 负载均衡策略
+    class: "org.redisson.connection.balancer.RoundRobinLoadBalancer" # 轮询策略
+  idleConnectionTimeout: 10000                # 空闲连接超时时间（毫秒），超过时间未使用的连接会被关闭
+  connectTimeout: 10000                       # 客户端连接超时时间（毫秒），超时会抛出异常
+  timeout: 3000                               # 响应超时时间（毫秒），指客户端等待响应的时间
+  retryAttempts: 3                            # 命令重试次数
+  retryInterval: 1500                         # 命令重试间隔（毫秒）
+  failedSlaveReconnectionInterval: 3000       # 从节点重新连接的时间间隔（毫秒）
+  subscriptionsPerConnection: 5               # 每个连接的订阅数限制
+  subscriptionConnectionMinimumIdleSize: 1    # 订阅连接的最小空闲连接数
+  subscriptionConnectionPoolSize: 50          # 订阅连接池的最大连接数
+  slaveConnectionMinimumIdleSize: 24          # 从节点最小空闲连接数
+  slaveConnectionPoolSize: 64                 # 从节点连接池大小
+  masterConnectionMinimumIdleSize: 24         # 主节点最小空闲连接数
+  masterConnectionPoolSize: 64                # 主节点连接池大小
+  readMode: "SLAVE"                           # 读操作模式：从从节点读取（可以设置为 "MASTER" 或 "MASTER_SLAVE"）
+  subscriptionMode: "SLAVE"                   # 订阅操作模式：从从节点订阅（可以设置为 "MASTER" 或 "MASTER_SLAVE"）
+
+threads: 16                                   # Redisson 客户端的线程数（操作线程）
+nettyThreads: 32                              # Netty 线程数（用于处理网络通信）
+transportMode: "NIO"                          # 网络传输模式，默认为 "NIO"（非阻塞 IO），也可以选择 "EPOLL"（仅支持 Linux）
