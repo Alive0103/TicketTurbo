@@ -103,9 +103,20 @@ git clone git@github.com:Alive0103/TicketTurbo.git
 ```
 
 2. 初始化数据库
+Docker启动数据库实例：
+
 ```bash
+docker run --name mysql \
+-p 3306:3306 \
+-e MYSQL_ROOT_HOST='%' \
+-e MYSQL_ROOT_PASSWORD=root \
+-d mysql:5.7.36
+```
+```bash
+CREATE DATABASE /*!32312 IF NOT EXISTS*/ `12306` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
 # 执行数据库脚本
-resources/db/12306-springcloud-*.sql
+resources/db/12306-springboot.sql
+resources/data/12306-springboot.sql
 ```
 
 3. 启动基础服务
@@ -113,17 +124,18 @@ resources/db/12306-springcloud-*.sql
 - 启动 Redis 服务
 - 启动 RocketMQ 服务
 
+（已在虚拟机部署）
+
 4. 启动后端服务
-```bash
-mvn clean package
-java -jar xxx.jar
-```
+启动Gateway和aggregation-service（聚合服务）即可
 
 5. 启动前端项目
 ```bash
-cd console-vue
-npm install
-npm run serve
+npm install -g yarn
+
+yarn install 
+
+yarn serve
 ```
 
 ## 性能优化
@@ -137,17 +149,15 @@ npm run serve
 ## 部署运维
 
 - 支持 Docker 容器化部署
-- 提供完整的监控指标
-- 分布式链路追踪
 - 日志统一收集管理
 
 ## 开发计划
 
 - [ ] 集成更多支付渠道
 - [ ] 优化座位分配算法
-- [ ] 增加更多监控指标
+- [ ] 增加可观测监控指标
 - [ ] 提升系统并发性能
-- [ ] 完善微服务治理
+
 
 ## 贡献指南
 
