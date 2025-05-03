@@ -103,7 +103,9 @@ git clone git@github.com:Alive0103/TicketTurbo.git
 ```
 
 2. 初始化数据库
+
 Docker启动数据库实例：
+
 
 ```bash
 docker run --name mysql \
