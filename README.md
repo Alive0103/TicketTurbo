@@ -153,6 +153,9 @@ npm run serve
 
 欢迎提交 Issue 或 Pull Request 来帮助改进项目。
 
+Author: 
+- [Alive 王越洋22009200894 后端](https://github.com/Alive0103) 
+
 ## 许可证
 
 本项目采用 MIT 许可证，详情请参见 LICENSE 文件。
