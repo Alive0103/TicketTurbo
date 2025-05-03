@@ -167,6 +167,7 @@ yarn serve
 
 Author: 
 - [Alive0103 王越洋22009200894](https://github.com/Alive0103) 
+- [Aran-hazel 付晗22009200800](https://github.com/Aran-hazel)
 
 ## 许可证
 
