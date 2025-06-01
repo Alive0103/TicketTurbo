@@ -24,9 +24,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * 车票订单详情创建请求参数
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
+  
  */
 @Data
 @NoArgsConstructor

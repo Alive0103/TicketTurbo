@@ -8,21 +8,15 @@
     <packaging>pom</packaging>
 
     <description>
-        🔥热门推荐🔥大学春招、秋招、应届项目，SpringBoot3+Java17+SpringCloudAlibaba+RocketMQ等技术架构，完成铁路12306用户+购票+订单+支付服务，帮助学生主打就业的项目。
+        TicketTurbo 是一个基于 SpringBoot3 + SpringCloud Alibaba 构建的现代化智能购票系统。本项目采用微服务架构设计，提供了完整的铁路购票解决方案，包括用户管理、车票查询、订单处理、支付服务等核心功能。
     </description>
 
     <developers>
         <developer>
-            <name>马丁</name>
-            <email>machen@apache.org</email>
-            <url>https://github.com/magestacks</url>
-            <organization>Apache and openGoofy</organization>
-        </developer>
-
-        <developer>
-            <name>懒洋洋</name>
-            <email>2084276225@qq.com</email>
-            <url>https://github.com/2084276225</url>
+            <name>Alive</name>
+            <email>972477867@qq.com</email>
+            <url>https://github.com/Alive0103/TicketTurbo</url>
+            <organization>TicketTurbo</organization>
         </developer>
     </developers>
 

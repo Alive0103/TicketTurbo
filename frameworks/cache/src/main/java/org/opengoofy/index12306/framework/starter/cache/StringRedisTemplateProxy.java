@@ -44,9 +44,7 @@ import java.util.concurrent.TimeUnit;
 /**
  * 分布式缓存之操作 Redis 模版代理
  * 底层通过 {@link RedissonClient}、{@link StringRedisTemplate} 完成外观接口行为
- * <p>
- * 作者：马丁
- * 加项目群：早加入就是优势！500人内部项目群，分享的知识总有你需要的 <a href="https://t.zsxq.com/cw7b9" />
+  
  */
 @RequiredArgsConstructor
 public class StringRedisTemplateProxy implements DistributedCache {
